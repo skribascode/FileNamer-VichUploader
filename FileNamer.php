@@ -40,8 +40,11 @@ class FileNamer implements NamerInterface
         // Get extension of file being uploaded
         $extension = $file->guessExtension();
 
+        // Get uniqid for change cache
+        $uniqid = uniqid();
+        
         // Find if previous avatar
-        $previousPicture = glob('../public/images/user_avatar/'.$userId.'*');
+        $previousPicture = glob('../public/images/user_avatar/'.$userId.'-*');
 
         // if true => remove previous avatar (.jpg .png .jpeg)
         if($previousPicture != null)
@@ -52,9 +55,9 @@ class FileNamer implements NamerInterface
         
         }
         
-        // Return new image name with user id and extension
-        return $userId.'.'.$extension;
+        // Return new image name with user id , uniqid and extension
+        return $userId.'-'.$uniqid.'.'.$extension;
 
     }
-    
+
 }
