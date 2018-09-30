@@ -2,7 +2,8 @@
 
 In Symfony 4
 
-Rename file being uploaded with the user ID with extension. And remove if it have a previous files with a different extension.
+Rename file being uploaded with the user ID, -uniqid and extension. 
+Also, this service remove if it have a previous files with a different extension (jpeg, png, jpg).
 
 FileNamer is a service.
 
